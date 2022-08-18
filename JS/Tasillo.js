@@ -120,7 +120,7 @@ const FiltroPrecio = Productos.filter((x) => x.PrecioFinal < 20000 && x.PrecioFi
 //console.log(FiltroPrecio);
 
 //---------SUMADOR DE COMPRA---------
-let ShopCart = []
+/*let ShopCart = []
 
 function ShopCartpush() {
     ShopCart.push()};
@@ -128,16 +128,81 @@ function ShopCartpush() {
 
 const total = ShopCart.reduce((acc, el) => acc + el.precio, 0);
 
-//console.log("la suma es", ShopCart);
 
 
+*/
 
 //--------HTML--------
-
+/*
 const ProductoHtml = (Producto) => {
+    const catalogo = document.getElementById ("injs")
     const col = document.createElement("div");
     col.className = "col";
     
+    const card = document.createElement ("div");
+    card.className = "card m-3";
+
+    const imgdiv = document.createElement ("div");
+    imgdiv.className = "imgdiv";
+
+    const imagen = document.createElement ("img");
+    imagen.className = "card-img-top m-2";
+    imagen.src = Producto.ImagenP;
+
+    const cardbody = document.createElement ("div");
+    cardbody.className = "card-body";
+
+    const h3 = document.createElement ("h3");
+    h3.className = "card-title p-2";
+    h3.innerText = Producto.marca;
+
+    const h4 = document.createElement ("h4");
+    h4.className = "card-subtitle p-2";
+    h4.innerText = Producto.modelo;
+
+    const p = document.createElement ("p");
+    p.className = "card-text p-2";
+    p.innerText = Producto.Descripcion;
+
+    const h5 = document.createElement ("h5");
+    h5.className = "card-price p-2";
+    h5.innerText = Producto.PrecioFinal;
+
+    const divbtn = document.createElement ("div")
+    divbtn.className = "divbtn";
+
+    const botoncompra = document.createElement ("button");
+    botoncompra.className = "btn btn-succes";
+    botoncompra.innerText = "Agregar";
+    botoncompra.onclick = () => console.log ("hola");
+
+    catalogo.appendChild(col);
+    col.appendChild (card);
+    card.appendChild (imgdiv)
+    card.appendChild (imagen)
+    card.appendChild (cardbody)
+    card.appendChild (h3)
+    card.appendChild (h4)
+    card.appendChild (p)
+    card.appendChild (h5)
+    card.appendChild (divbtn)
+
+    imgdiv.appendChild (imagen)
+
+    divbtn.appendChild (botoncompra)
+
+    cardbody.appendChild (h3)
+    cardbody.appendChild (h4)
+    cardbody.appendChild (p)
+    cardbody.appendChild (h5)
+    cardbody.appendChild (divbtn)
+
+
+}
+*/const ProductoHtml = (Producto) => {
+    const catalogo = document.getElementById ("catalogo")
+    const col = document.createElement("div");
+    col.className = "col";
     const Relleno = `
             <div class="card m-3" style=";">
                 <div class="imgdiv">
@@ -148,24 +213,66 @@ const ProductoHtml = (Producto) => {
                     <h4 class="card-subtitle p-2">${Producto.modelo}</h4>
                     <p class="card-text p-2">${Producto.Descripcion}</p>
                     <h5 class="card-price p-2">$ ${Producto.PrecioFinal}</h5>
-                    <a href="#" class="btn btn-primary">Agregar</a>
+                    <button href="#" id="boton-${Producto.id}" class="btn btn-primary">Agregar</button>
                 </div>
             </div>
         </div>`
         ;
 
+
 col.innerHTML = Relleno
-document.querySelector("#injs").append(col);
+document.querySelector("#catalogo").append(col);
 };
+
 
 for(const Producto of Productos) {
     ProductoHtml(Producto)
 }
 
 
-//------------CARRITO------------
+/*BOTON AGREGAR PRODUCTO CARRITO*/
+for (const Producto of Productos){
+    const boton = document.getElementById (`boton-${Producto.id}`);
+    boton.addEventListener ("click", () => {
+        carrito.push(Producto)
+        addCarrito ()
+    })
+}
 
-/* BOTON REALIZAR COMPRA */
+
+//------------CARRITO------------
+const carrito = [];
+
+const carritodom = document.getElementById ("carrito")
+const ProductoCarritoHtml = (Producto) => {
+    const Relleno = `
+            <div class="card m-3" style=";">
+                <div class="imgdiv">
+                    <img src="${Producto.ImagenP}" class="card-img-top m-2" alt="...">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title p-2">${Producto.marca}</h3>
+                    <h4 class="card-subtitle p-2">${Producto.modelo}</h4>
+                    <button  id="boton-quitar-${Producto.id}" class="btn btn-danger m-2">Quitar</button>
+                </div>
+            </div>
+        </div>`
+        return Relleno;
+        ;
+
+};
+
+const addCarrito = () => {
+    let productosCarritohtml ="";
+    for (const Producto of carrito) {
+        productosCarritohtml += ProductoCarritoHtml(Producto)
+    }
+    carritodom.innerHTML = productosCarritohtml;
+}  
+
+
+
+
 
 /*INGRESO DE DISTANCIA*/
 function idDistancia(){
@@ -227,15 +334,21 @@ function envio(Distancia){
 /* EN ESTE MOMENTO FUNCIONA DESPUES DE COMPLETAR LA DISTANCIA A DONDE SERIA EL ENVIO */
 
 /*Numero de orden*/
-/*if (Turno = 1) {
-    for (let Orden = 1; Orden <= 10000; Orden++) {
-        alert(" Orden de Pedido "+ Orden );
-        console.log(" Orden de Pedido "+ Orden );
-        break;
+
+function Turno(){
+    if (Turno = 1) {
+        for (let Orden = 1; Orden <= 10000; Orden++) {
+            turno = document.getElementById("npedido").value;
+            break;
+        }
     }
 }
 
+/*
+function seeturno(){
+    turno = document.getElementById("npedido").value;
 
+}
 
 
 
