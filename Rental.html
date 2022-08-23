@@ -122,7 +122,7 @@
         
         <div>
             <div class="row m-5 justify-content-around overflow-hidden justify-content-center"> 
-                <div class="h2t"><h2>CARRITO</h2></div>
+                <div class="h2t"><h2>CARRITO</h2><span id="precioRental">""</span></div>
                 <div class="row" id="carrito"></div>
         </div>
 
@@ -131,60 +131,60 @@
                 <h2 class="text-center text-lg-center mt-4 mb-0 mx-5 shadow-1-strong rounded" >DATOS PARA ENVIO</h2>
                 <hr class="mt-2 mb-5">
                 <div id="contacto" class="row p-5 m-5 justify-content-around overflow-hidden shadow-1-strong rounded">
-                    <form>
+                    <form id="datosCliente">
                         <div class="row mb-4">
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="text" id="nombre" class="form-control" />
                                     <label class="form-label" for="nombre">NOMBRE</label>
+                                    <input type="text" name="Nombre" id="nombre" class="form-control" />
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="number" id="envio" class="form-control" placeholder="Ingrese distancia de envio" />
                                     <label class="form-label" for="envio">DISTANCIA DE ENVIO</label>
+                                    <input type="number" name="Distancia" id="envio" class="form-control" placeholder="Ingrese distancia de envio" />
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="text" id="apellido" class="form-control" />
                                     <label class="form-label" for="apellido">APELLIDO</label>
+                                    <input type="text" name="Apellido" id="apellido" class="form-control" />
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="text" id="costoenvio" class="form-control" />
                                     <label class="form-label" for="costoenvio">EL ENVIO CUESTA</label>
+                                    <input type="text" name="Costo" id="costoenvio" readonly class="form-control" />
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="number" id="telefono" class="form-control" />
                                     <label class="form-label" for="telefono">TELEFONO</label>
+                                    <input type="number" name="Telefono" id="telefono" class="form-control" />
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="text" id="npedido" class="form-control" />
-                                    <label class="form-label" for="npedido">SU NUMERO DE PEDIDO ES EL</label>
+                                    <label class="form-label" for="Subtotal">SUBTOTAL</label>
+                                    <input type="text" name="Subtotal" id="subTotal" readonly class="form-control" />
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="email" id="email" class="form-control" />
                                     <label class="form-label" for="email">EMAIL</label>
+                                    <input type="email" name="email" id="email" class="form-control" />
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="text" id="fecha" class="form-control" />
-                                    <label class="form-label" for="fecha">FECHA Y HORA DE SU PEDIDO</label>
+                                    <label class="form-label" for="Total">TOTAL</label>
+                                    <input type="text" name="Total" id="Total" readonly class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -212,5 +212,6 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="/JS/Tasillo.js"></script>
+    <script src="/JS/Datos.js"></script>
 </body>
 </html>
