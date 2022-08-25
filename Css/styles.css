@@ -424,6 +424,34 @@ label {
   
 }
 
+.img-carrito{
+  max-width: 200px;
+}
+
+.col-lg-12 {
+  background-color: rgb(122, 118, 118);
+}
+
+#head {
+  background-color: #333;
+  font-family: "Roboto", sans-serif 
+}
+
+#font{
+  color: aliceblue;
+  font-size: 1.2rem;
+}
+
+.back-in{
+  background-color: #333;
+
+}
+
+.prc{
+  display: flex;
+  align-content: flex-end;
+  justify-content: right;
+}
 /*MEDIAS*/
 @media screen and (max-width: 1280px) {
   #imagen_trabaja {

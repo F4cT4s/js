@@ -69,7 +69,7 @@ Productos.push (new Inventario("35","consolas", "grandma", "300", "grandma3 ligh
 for (const Inventario of Productos) {
     Inventario.USDtoARS();
 }
-console.log (Productos)
+//console.log (Productos)
 
 //----------FILTRO POR BUSQUEDA-----------
 
@@ -122,18 +122,18 @@ const ProductoHtml = (Producto) => {
     col.className = "col";
     const Relleno = `
     <div class="card m-3" style=";">
-    <div class="imgdiv">
-    <img src="${Producto.ImagenP}" class="card-img-top m-2" alt="...">
-    </div>
-    <div class="card-body">
-                    <h3 class="card-title p-2">${Producto.marca}</h3>
-                    <h4 class="card-subtitle p-2">${Producto.modelo}</h4>
-                    <p class="card-text p-2">${Producto.Descripcion}</p>
-                    <h5 class="card-price p-2">$ ${Producto.PrecioFinal}</h5>
-                    <button href="#" id="boton-${Producto.id}" class="btn btn-primary">Agregar</button>
-                    </div>
-                </div>
-        </div>`
+        <div class="imgdiv">
+            <img src="${Producto.ImagenP}" class="card-img-top m-2" alt="...">
+        </div>
+        <div class="card-body">
+            <h3 class="card-title p-2">${Producto.marca}</h3>
+            <h4 class="card-subtitle p-2">${Producto.modelo}</h4>
+            <h5 class="card-price p-2">$ ${Producto.PrecioFinal}</h5>
+            <p class="card-text p-2">${Producto.Descripcion}</p>
+            <button href="#" id="boton-${Producto.id}" class="btn btn-primary">Agregar</button>
+            </div>
+        </div>
+    </div>`
         ;
         
         
@@ -145,14 +145,10 @@ const ProductoHtml = (Producto) => {
     for(const Producto of Productos) {
         ProductoHtml(Producto)
     }
-    //------------CARRITO------------
-    let carrito = {};
+    
     //---------SUMADOR DE COMPRA---------
     
-
-/*---------BOTON AGREGAR PRODUCTO CARRITO---------*/
-
-/*
+/*BOTON AGREGAR PRODUCTO CARRITO*/
 for (const Producto of Productos){
     const boton = document.getElementById (`boton-${Producto.id}`);
     boton.addEventListener ("click", () => {
@@ -167,29 +163,46 @@ const addCarrito = () => {
         productosCarritohtml += ProductoCarritoHtml(Producto)
     }
     carritodom.innerHTML = productosCarritohtml;
-}  */
+}  
 
+//------------CARRITO------------
+let carrito = [];
+let precio = 0
 
-/*
 const carritodom = document.getElementById ("carrito")
 const ProductoCarritoHtml = (Producto) => {
     const Relleno = `
-            <div class="card m-3" style=";">
-                <div class="imgdiv">
-                    <img src="${Producto.ImagenP}" class="card-img-top m-2" alt="...">
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title p-2">${Producto.marca}</h3>
-                    <h4 class="card-subtitle p-2">${Producto.modelo}</h4>
-                    <button  id="boton-quitar-${Producto.id}" class="btn btn-danger m-2">Quitar</button>
-                </div>
-            </div>
-        </div>`
-        return Relleno;
-        ;
+    <tr>
+    <th scope="row" class="border-0">
+        <div class="back-in p-2" >
+            <img src="${Producto.ImagenP}" alt="" class="img-carrito rounded shadow-sm">
+        <div class="ml-3 d-inline-block align-middle">
+            <h5 class="back-in mb-0"> 
+            <a href="#" id="font" class=" d-inline-block align-middle">${Producto.marca}</a>
+            </h5>
+            <span id="font" class=" font-weight-normal font-italic d-block">${Producto.modelo}</span>
+        </div>
+        </div>
+    </th>
+        <td id="font" class="back-in border-0 align-middle"><strong>${Producto.PrecioFinal}</strong></td>
+        <td id="font" class="back-in border-0 align-middle"><strong>3</strong></td>
+        <td id="font" class="back-in border-0 align-middle"><button  id="boton-quitar-${Producto.id}" class="btn btn-danger m-2">Quitar</button></td>
+        </tr>
 
+`
+        preciohtml ()
+    return Relleno;
 };
-console.log (carrito)
+
+const preciohtml = () => {
+    const precionodo = document.getElementById ("Precio carrito")
+
+    for (const Producto of carrito) {
+        precio += Producto.PrecioFinal
+    }
+
+    precionodo.innerHTML = precio;
+}
 
 
 
@@ -209,7 +222,13 @@ function getDistancia(e){
     let costo = envio(distancia);
     !isNaN(parseFloat(distancia)) && !isNaN(distancia - 0);
     document.getElementById("costoenvio").value = costo;
+    ;
 }
+
+/*------------SUMADOR TOTAL ------------*/
+
+document.getElementById("Total").value = ((document.getElementById("costoenvio").value) + (document.getElementById("subTotal").value));
+
 
 /*----------FUNCION DE CALCULO DE DISTANCIA----------*/
 
@@ -228,43 +247,53 @@ function envio(Distancia){
     }
 }
 
-
-
-
-/*Numero de orden*/
-
-function Turno(){
-    if (Turno = 1) {
-        for (let Orden = 1; Orden <= 10000; Orden++) {
-            break;
-        }
-    }
-}
-
-
-function seeturno(){
-    turno = document.getElementById("").value;
-
-}
-
 /* GUARDADO DE DATOS DEL SUBMIT */
 
-const form = document.getElementById('datosCliente');
-
-form.addEventListener('submit', guardarDatos);                      
-
-const arrayObjetosdata = "";
-
-function guardarDatos(event) {
-    
-    event.preventDefault();
-    const Data = new FormData(event.target);
-    const arrayObjetosdata = Object.fromEntries(Data.entries());
-
-    
-    /*Data.forEach((value, key) => (arrayObjetosdata[key] = value));*/
-    
-};
-//console.log(arrayObjetosdata)
+/*---datos de submit */
+let subtotal = document.getElementById("subTotal").value
 
 
+let userData = [];
+
+document.addEventListener('DOMContentLoaded', ()=>{
+document.getElementById('btn').addEventListener('click', tomadeDatos);
+});
+
+
+
+function tomadeDatos(e){
+    e.preventDefault();
+    let data = {
+        Nombre: document.getElementById("nombre").value,
+        Apellido: document.getElementById("surname").value,
+        Telefono: document.getElementById("telefono").value,
+        Email: document.getElementById("email").value,
+        Distancia: document.getElementById("envio").value,
+        Costo: document.getElementById("costoenvio").value,
+        //subtotal: document.getElementById("subtotal").value,
+        //total : document.getElementById("Total").value,
+        Identificador: Date.now(),
+    }
+    userData.push(data);
+    document.querySelector("form").reset();
+
+    console.warn('added',{userData} );
+
+    //localStorage
+    localStorage.setItem('Datos Personas', JSON.stringify(userData) );
+
+    return alertData()
+}
+
+function alertData(){
+    alert (JSON.stringify(localStorage.getItem('Datos Personas', null, '...')))
+}
+
+
+console.log (JSON.stringify(localStorage.getItem('Datos Personas', null, '...')))
+
+
+
+
+
+/*--------DATOS JSON--------*/
