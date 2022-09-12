@@ -87,7 +87,7 @@ const ProductoCarritoHtml = (product) => {
         </div>
         </div>
     </th>
-        <td id="font" class="back-in border-0 align-middle"><strong>${product.PrecioFinal}</strong></td>
+        <td id="font" class="back-in border-0 align-middle"><span>$</span><strong>${product.PrecioFinal}</strong></td>
         <td id="font" class="back-in border-0 align-middle">
           <div class='input-group'>
             <button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>
@@ -132,6 +132,9 @@ const showCart = () => {
   priceNode.innerHTML = price;
   subtotal = price
   buttonCart();
+  mostrarSubtotalform ()
+
+  
 };
 
 // ------ ACCIONES ------
@@ -149,7 +152,8 @@ const buttonCatalog = () => {
         PrecioFinal: product.PrecioFinal,
         idPurchase: counterCart,
       };
-
+      
+     
       // Popup (de libreria Toastify) para confirmacion de articulo agregad al carrito.
       Toastify({
         text: "ITEM AGREGADO",
@@ -235,9 +239,12 @@ console.log(...productos);
 */
 
 /*-----------INGRESO DE DISTANCIA-----------*/
+let infoEnvio = 0
+
 function idDistancia(){
 let distancia = 0
 }
+
 let input = document.getElementById('envio');
 input.addEventListener('keyup', (event) => { 
     getDistancia(event);
@@ -247,17 +254,20 @@ input.addEventListener('keyup', (event) => {
 function getDistancia(e){
     let distancia = e.target.value;
     let costo = envio(distancia);
-    !isNaN(parseFloat(distancia)) && !isNaN(distancia - 0);
     document.getElementById("costoenvio").value = costo;
+    infoEnvio = costo
+    sumanodos ()
     ;
 }
 
 
 
 /*----------FUNCION DE CALCULO DE DISTANCIA----------*/
-
-function envio(Distancia){
-  if ((Distancia <= 15) && (Distancia !== 1)){
+function envio (Distancia){
+  if (Distancia <= 0) {
+      return 0
+      }
+  else if ((Distancia <= 15) && (Distancia !== 1)){
     return 140;
   }
   else if ((Distancia > 15) && (Distancia <= 20)){ 
@@ -271,31 +281,37 @@ function envio(Distancia){
       }
     }
 
-/* ---------------GUARDADO DE DATOS DEL SUBMIT ---------------*/
-    
-    /*---datos de submit */
 
-// Funcion tomar total de carrito y llevarlo al subtotal del form
+/* ---------------DATOS DEL SUBMIT ---------------*/
+    
 
 
 /*------------SUMADOR TOTAL ------------*/
-const nodoTotal = document.getElementById("Total")
-const nodoEnvio = document.getElementById("costoenvio").innerText
-const nodoSubtotal = document.getElementById("Precio carrito").innerText
-
-const sumaSubtotal = nodoEnvio + nodoSubtotal
+function mostrarSubtotalform (){
+  document.getElementById("subTotal").value = subtotal;
+}
 
 
-//document.getElementById("Total").value = ((document.getElementById("costoenvio").value) + (document.getElementById("subTotal").value));
+function sumanodos () {
+  let infoSubtotal = subtotal
+  let sumaTotal = sumaParciales(infoSubtotal, infoEnvio)
+  document.getElementById("Total").value = sumaTotal;
+}
+
+function sumaParciales (x , y) {
+ return x + y
+}
+//document.getElementById("Total").innerText = sumaTotal
+
+//const sumaParciales = ((document.getElementById("costoenvio").innerText) + (document.getElementById("Precio carrito")));
 
 
 //-----toma de datos-----
-let userData = [];
+
 
 document.addEventListener('DOMContentLoaded', ()=>{
   document.getElementById('btn').addEventListener('click', tomadeDatos);
 });
-
 
 
 function tomadeDatos(e){
@@ -307,11 +323,14 @@ function tomadeDatos(e){
         Email: document.getElementById("email").value,
         Distancia: document.getElementById("envio").value,
         Costo: document.getElementById("costoenvio").value,
-        //subtotal: subtotal(),
+        subtotal: document.getElementById("subTotal").value ,
         total : document.getElementById("Total").value,
+        carrito : shoppingCart,
         Identificador: Date.now(),
     }
     
+    sumanodos()
+
     document.querySelector("form").reset();
 
     console.warn('Usuario cargado local storage',{data} );
@@ -333,7 +352,7 @@ function alertData() {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title : "Muchas gracias su pedido es el ",
+      title : "Muchas gracias su pedido es el : ",
       text : user.Identificador,
       showConfirmButton: true,
       
@@ -347,7 +366,7 @@ function updateData () {
   
   fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'POST',
-    body: JSON.stringify(shoppingCart),
+    body: localStorage.getItem('Datos Personas'),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
