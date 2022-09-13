@@ -377,7 +377,7 @@ label {
 .card {
   background-color: rgb(122, 118, 118);
   display: flex;
-  width: 18rem;
+  width: 20.2rem;
   height: auto;
 }
 
@@ -453,7 +453,12 @@ label {
   justify-content: right;
 }
 
-/*css SWEET*/
+#contenedorVaciar{
+  display: flex;
+  align-content: flex-end;
+  justify-content: right;
+}
+
 
 
 /*MEDIAS*/

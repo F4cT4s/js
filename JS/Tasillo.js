@@ -88,11 +88,7 @@ const ProductoCarritoHtml = (product) => {
         </div>
     </th>
         <td id="font" class="back-in border-0 align-middle"><span>$</span><strong>${product.PrecioFinal}</strong></td>
-        <td id="font" class="back-in border-0 align-middle">
-          <div class='input-group'>
-            <button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>
-          <input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>
-          <button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>
+        <td id="font" class="back-in border-0 align-middle"><div>1</div></td>
         <td id="font" class="back-in border-0 align-middle"><button  id="button-cart-${product.idPurchase}" class="btn btn-danger m-2">Quitar</button></td>
         </tr>
 
@@ -138,6 +134,7 @@ const showCart = () => {
 };
 
 // ------ ACCIONES ------
+// agregar item
 const buttonCatalog = () => {
   for (const product of productos) {
     const buttonCatalog = document.getElementById(
@@ -153,7 +150,6 @@ const buttonCatalog = () => {
         idPurchase: counterCart,
       };
       
-     
       // Popup (de libreria Toastify) para confirmacion de articulo agregad al carrito.
       Toastify({
         text: "ITEM AGREGADO",
@@ -177,6 +173,8 @@ const buttonCatalog = () => {
     });
   }
 };
+
+//quitar item
 
 const buttonCart = () => {
   for (const product of shoppingCart) {
@@ -211,6 +209,16 @@ const buttonCart = () => {
     });
   }
 };
+
+//vaciar carrito
+
+  const buttonVaciar = document.getElementById("vaciarCarrito")
+  buttonVaciar.addEventListener("click", () => {
+    localStorage.removeItem('itemCart');
+    location.reload()
+  })
+
+
 
 // Ejecucion de funcion para agregar a catalogo.
 
@@ -282,6 +290,8 @@ function envio (Distancia){
     }
 
 
+
+    
 /* ---------------DATOS DEL SUBMIT ---------------*/
     
 
@@ -299,12 +309,8 @@ function sumanodos () {
 }
 
 function sumaParciales (x , y) {
- return x + y
+return x + y
 }
-//document.getElementById("Total").innerText = sumaTotal
-
-//const sumaParciales = ((document.getElementById("costoenvio").innerText) + (document.getElementById("Precio carrito")));
-
 
 //-----toma de datos-----
 
