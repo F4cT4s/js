@@ -459,7 +459,14 @@ label {
   justify-content: right;
 }
 
+#Filtro {
+  display: flex;
+  justify-content: space-evenly;
+}
 
+#dropDown {
+  background-color:  #1eeb5b;
+}
 
 /*MEDIAS*/
 @media screen and (max-width: 1280px) {

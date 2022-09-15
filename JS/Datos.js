@@ -11,14 +11,14 @@ class Inventario {
             this.vendido = false;
     }
     USDtoARS () {
-        this.PrecioFinal = this.PrecioUSD * 200; /*este dato del dolar mas adelante me gustaria que lo actualice solo tomando dato de alguna pagina*/
+        this.PrecioFinal = this.PrecioUSD * 200; 
     }
 }
 
 /*--Array to push--- */
 const productos = [];
 //moviles
-productos.push (new Inventario("0","movil", "tec-Show", "15", "beamer 7r", "3000", "Cabezal móvil de diseño compacto que tiene una lámpara 7R de 230W, 14 colores + abierto, CTB, CTO, efecto de arcoiris", "./assets/imagenes/beamer7r.jpg"));
+productos.push (new Inventario("0","movil", "tec-Show", "16", "beamer 7r", "3000", "Cabezal móvil de diseño compacto que tiene una lámpara 7R de 230W, 14 colores + abierto, CTB, CTO, efecto de arcoiris", "./assets/imagenes/beamer7r.jpg"));
 productos.push (new Inventario("1","movil", "tec-Show", "15", "magic Cube", "3000", "Cabezal móvil versátil que tiene 25 LEDs 4-en-1 de 15W,Pan/Tilt sin limitaciones y su capacidad de controlar los píxeles de forma independiente","./assets/imagenes/magic cube.jpg" ));
 productos.push (new Inventario("2","movil", "tec-Show", "30", "beamer 17r", "6000", "Cabezal móvil que cubre las funciones spot, wash y beam, lámpara de arco corto 17R de 350W", "./assets/imagenes/beamer 17r.jpg"));
 productos.push (new Inventario("3","movil", "tec-Show", "12", "mad tec", "2400", "Cabezal móvil tipo beam que tiene 36 CREE XP-E LEDs de 3W, extremadamente rápido y ligero", "./assets/imagenes/mad tec.jpg"));
@@ -45,7 +45,7 @@ productos.push (new Inventario("21","tramos", "thomas", "30", "3 metros cuadrado
 productos.push (new Inventario("22","tramos", "thomas", "15", "cubo 30*30", "3000", "Truss cubo 30x30 en aluminio para union de truss cuadrado.","./assets/imagenes/cubo aluminio.jpg"));
 productos.push (new Inventario("23","tramos", "thomas", "10", "1 metros triangular 30x30", "3000", "Truss triangular 30x30 de 1 metro de largo en acero.","./assets/imagenes/acero triangular.jpg"));
 productos.push (new Inventario("24","tramos", "thomas", "15", "3 cuadrado metros 30x30", "3000", "Truss cuadradro 30x30 de 3 metros de largo en acero.","./assets/imagenes/acero cuadrado.jpg"));
-//dimmet
+//dimmer
 productos.push (new Inventario("25","dimmer", "liteputter", "30", "6 canales", "6000", "Dimmer pack con 6 canales, una capacidad por canal de 20 amperios y un control Dmx -512.","./assets/imagenes/dimmer 6 canales.jpg"));
 productos.push (new Inventario("26","dimmer", "liteputter", "35", "12 canales", "7000", "Dimmer pack con 12 canales, una capacidad por canal de 20 amperios y un control Dmx -512","./assets/imagenes/dimmer 12 lp.jpg"));
 productos.push (new Inventario("27","dimmer", "mtx", "50", "12 canales", "10000", "Dimmer mod. 1220D DMX y analógico (12 can. x 20 Amp) Toroides de 300uS","./assets/imagenes/dimmer 12 mtx.jpg"));

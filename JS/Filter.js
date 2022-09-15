@@ -1,6 +1,21 @@
-//---------- LISTENR DROPDOWN CATEGORIA---------
+
+
+  
+fetch("JS/lista.json")
+  .then((response) => response.json())
+  .then((data) =>{
+    lista = data
+    showCatalog()
+    console.warn("Carga API exitosa")
+  })
+  .catch((error) => {
+    console.error("Falla al cargar API")
+    console.error(error)
+  })
+
+
+//---------- LISTENER DROPDOWN CATEGORIA---------
 let lista = []
-lista = productos
 let elemento = ""
 function dropDownListener() {
   let elem = document.querySelectorAll(".dropdown-item");
@@ -39,7 +54,6 @@ dropDownListener();
 //------Todo------
 function filtroTodo () {
   if (elemento == "Todo"){
-    lista = productos
     showCatalog()
   }
 }
