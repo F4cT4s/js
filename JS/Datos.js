@@ -40,18 +40,18 @@ productos.push (new Inventario("17","fijas", "robe", "25", "t11 fresnel", "5000"
 productos.push (new Inventario("18","fijas", "robe", "50", "onepatt", "10000", "OnePATT es un dispositivo LED multicolor de alta potencia y multichip RGBW alojado en un marco de estilo retro de metal cepillado súper delgado y liviano, puede mapear en píxeles y, por lo tanto, controlar y usar para aplicaciones de matriz a gran escala","./assets/imagenes/onepatt.jpg"));
 productos.push (new Inventario("19","fijas", "robe", "50", "pixelpatt", "10000", "PixelPATT está compuesto por 7 chips LED RGBW de 40 W, uno en el centro rodeado por un anillo de seis, alojados en un marco de metal cepillado súper delgado y liviano. ","./assets/imagenes/pixelpatt.jpg"));
 //tramos
-productos.push (new Inventario("20","tramos", "alumino", "20", "1 metro cuadrado 30*30", "3000", "Truss cuadradro de 1 metro de largo 30x30, en aluminio.","./assets/imagenes/truss_1mtro cuadrado 3030.jpg"));
-productos.push (new Inventario("21","tramos", "alumino", "30", "3 metros cuadrado 30*30", "3000", "Truss cuadrado de 3 metros de largo 30x30 en alumino.","./assets/imagenes/3030 cuadrado 3.jpg"));
-productos.push (new Inventario("22","tramos", "alumino", "15", "cubo 30*30", "3000", "Truss cubo 30x30 en aluminio para union de truss cuadrado.","./assets/imagenes/cubo aluminio.jpg"));
-productos.push (new Inventario("23","tramos", "acero", "10", "1 metros triangular 30x30", "3000", "Truss triangular 30x30 de 1 metro de largo en acero.","./assets/imagenes/acero triangular.jpg"));
-productos.push (new Inventario("24","tramos", "acero", "15", "3 cuadrado metros 30x30", "3000", "Truss cuadradro 30x30 de 3 metros de largo en acero.","./assets/imagenes/acero cuadrado.jpg"));
-//dimmer
+productos.push (new Inventario("20","tramos", "thomas", "20", "1 metro cuadrado 30*30", "3000", "Truss cuadradro de 1 metro de largo 30x30, en aluminio.","./assets/imagenes/truss_1mtro cuadrado 3030.jpg"));
+productos.push (new Inventario("21","tramos", "thomas", "30", "3 metros cuadrado 30*30", "3000", "Truss cuadrado de 3 metros de largo 30x30 en alumino.","./assets/imagenes/3030 cuadrado 3.jpg"));
+productos.push (new Inventario("22","tramos", "thomas", "15", "cubo 30*30", "3000", "Truss cubo 30x30 en aluminio para union de truss cuadrado.","./assets/imagenes/cubo aluminio.jpg"));
+productos.push (new Inventario("23","tramos", "thomas", "10", "1 metros triangular 30x30", "3000", "Truss triangular 30x30 de 1 metro de largo en acero.","./assets/imagenes/acero triangular.jpg"));
+productos.push (new Inventario("24","tramos", "thomas", "15", "3 cuadrado metros 30x30", "3000", "Truss cuadradro 30x30 de 3 metros de largo en acero.","./assets/imagenes/acero cuadrado.jpg"));
+//dimmet
 productos.push (new Inventario("25","dimmer", "liteputter", "30", "6 canales", "6000", "Dimmer pack con 6 canales, una capacidad por canal de 20 amperios y un control Dmx -512.","./assets/imagenes/dimmer 6 canales.jpg"));
 productos.push (new Inventario("26","dimmer", "liteputter", "35", "12 canales", "7000", "Dimmer pack con 12 canales, una capacidad por canal de 20 amperios y un control Dmx -512","./assets/imagenes/dimmer 12 lp.jpg"));
 productos.push (new Inventario("27","dimmer", "mtx", "50", "12 canales", "10000", "Dimmer mod. 1220D DMX y analógico (12 can. x 20 Amp) Toroides de 300uS","./assets/imagenes/dimmer 12 mtx.jpg"));
 //riggin
-productos.push (new Inventario("28","rigging", "aparejo Manual", "15", "6 metros", "8000", "Aparejo A Cadena Manual Reforzado 1 Tonelada 6 Mts Metros","./assets/imagenes/aparejo manual.jpg"));
-productos.push (new Inventario("29","rigging", "aparejo Electrico", "50", "12 metros", "9000", "Aparejo electrico trisfasico de 2 toneladas y 12 metros","./assets/imagenes/aparejo electrico.jpg"));
+productos.push (new Inventario("28","rigging", "bta", "15", "6 metros", "8000", "Aparejo A Cadena Manual Reforzado 1 Tonelada 6 Mts Metros","./assets/imagenes/aparejo manual.jpg"));
+productos.push (new Inventario("29","rigging", "pro-lyft", "50", "12 metros", "9000", "Aparejo electrico trisfasico de 2 toneladas y 12 metros","./assets/imagenes/aparejo electrico.jpg"));
 productos.push (new Inventario("30","rigging", "spanset", "25", "3 metros", "5000", "Spanset de nylon de 1 tonelada y 3 metros, cirtificacion IRAM 2001","./assets/imagenes/spanset.jpg"));
 //consolas
 productos.push (new Inventario("32","consolas", "avolites", "70", "pearl 2046", "3000", "Consola de control de iluminación DMX512, 4 universos DMX hasta 240 aparatos asignables, 2 ruedas de encoder óptico,2 ruedas de encoder óptico, 4 páginas de 60 faders de preset,450 memorias o chases" ,"./assets/imagenes/pearl.jpg"));

@@ -1,50 +1,6 @@
 /*------------LA IDEA SERIA UNA SECCION DE PRODUCTOS CON CARRITO DE COMPRAS
 -------------- CON MODIFICADOR POR DISTANCIA Y NUMERO DE PEDIDO--------*/
 
-//----------FILTRO POR BUSQUEDA-----------
-
-
-//----------FILTRO POR CATEGORIA-----------
-
-const FiltroCategoria = productos.filter((x) => x.categoria.includes('MOVIL'))
-
-
-//----------FILTRO POR MARCA-----------
-
-const FiltroMarca = productos.filter((x) => x.marca.includes('AVOLITES'))
-
-//----------FILTRO POR MAYOR PRECIO-----------
-
-let MayorPrecio = 0;
-let TituloMasCaro = "";
-
-for (const HightPrice of productos){
-    if (HightPrice.PrecioFinal > MayorPrecio){
-        MayorPrecio = HightPrice.PrecioFinal
-        TituloMasCaro = HightPrice.modelo
-    }
-}
-
-//----------FILTRO POR MENOR PRECIO-----------
-
-let MenorPrecio = 999999;
-let TituloMasBarato = "";
-
-for (const lowprice of productos) {
-    if (lowprice.PrecioFinal < MenorPrecio){
-        MenorPrecio = lowprice.PrecioFinal
-        TituloMasBarato = lowprice.modelo
-    }
-}
-
-
-//----------FILTRO DE PRECIO POR RANGO-----------
-
-const FiltroPrecio = productos.filter((x) => x.PrecioFinal < 20000 && x.PrecioFinal > 8000); 
-
-
-
-
 // Variable para contador de carrito.
 
 let counterCart = 0;
@@ -101,7 +57,7 @@ const showCatalog = () => {
   const catalogNode = document.getElementById("catalogo");
   let catalogHTML = "";
 
-  for (const product of productos) {
+  for (const product of lista) {
     catalogHTML += ProductoHtml(product);
   }
 
@@ -136,7 +92,7 @@ const showCart = () => {
 // ------ ACCIONES ------
 // agregar item
 const buttonCatalog = () => {
-  for (const product of productos) {
+  for (const product of lista) {
     const buttonCatalog = document.getElementById(
       `button-catalog-${product.id}`
     );
@@ -229,22 +185,6 @@ showCatalog();
 const shoppingCart = JSON.parse(localStorage.getItem("itemCart")) || [];
 showCart();
 
-// -----------------------OPERADOR LS-----
-
-shoppingCart != 0
-  ? console.log(shoppingCart)
-  : console.log("El localStorage está vacío.");
-
-
-// ------------------------DESESTRUCTURACION------
-/*const [a, , , , , b] = productos;
-
-console.log(a);
-console.log(b);
-
-// Spread de array.
-console.log(...productos);
-*/
 
 /*-----------INGRESO DE DISTANCIA-----------*/
 let infoEnvio = 0
